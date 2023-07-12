@@ -26,12 +26,12 @@ with open('samples_unique.csv', 'w') as output_file:
   output_writer.writeheader()
   with (open('samples_with_duplicates.csv', mode='r')) as csvfile:
     reader = csv.DictReader(csvfile)
-    unique_ids = []
+    distinct_ids = []
     for row in reader:
       combination_id = row["EmployeeID"] + row["SecondaryID"]
-      if (is_unique(combination_id, unique_ids)):
+      if (is_unique(combination_id, distinct_ids)):
         print("Unique combination id: " + combination_id + " found. Writing to file")
-        unique_ids.append(combination_id)
+        distinct_ids.append(combination_id)
         output_writer.writerow(row)
       else:
         print("Combination id: " + combination_id + " already found. Not writing to file")
