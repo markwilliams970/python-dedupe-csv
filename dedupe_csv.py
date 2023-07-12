@@ -22,7 +22,6 @@ dict_template = {
 dict_template_keys = ['EmployeeID', 'DOB', 'FirstName', 'LastName', 'Email', 'SecondaryID', 'Random']
 
 with open('samples_unique.csv', 'w') as output_file:
-  print (dict_template.keys())
   output_writer = csv.DictWriter(output_file, dict_template_keys)
   output_writer.writeheader()
   with (open('samples_with_duplicates.csv', mode='r')) as csvfile:
